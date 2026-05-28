@@ -1,0 +1,10 @@
+.env
+TODO.txt
+.VSCodeCounter
+.github/workflows/postman.yaml
+prometheus-data
+firebase-credentials.json
+firebase-credentials-deploy.json
+*.log
+data.json
+hology-60e9a-firebase-adminsdk-fbsvc-4ea5bbff92.json

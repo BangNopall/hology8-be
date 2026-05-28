@@ -1,0 +1,11 @@
+Admin PIT, grubenadminholo8, nLqrwJVFPC, 01-H8SA-ZD-fbbc4fdf
+Admin Acara, veranstaadminholo8, Olv6kmVMKd, 02-H8EA-AA-e67fbfca
+Admin Kompetisi, wettbewerholo8, YDp9P7DbCa, 02-H8EA-AA-e67fbfca
+Admin Kompetisi Competitive Programming, wettrungholo8, x9MrCTbN3n, 03-H8CA-AR-ac26be1a
+Admin Kompetisi Capture The Flag, erodflagholo8, NtaI2SKWtg, 03-H8CA-AR-ac26be1a
+Admin Kompetisi Data Mining, bergbaudatenholo8, 42xIwXZXkE, 03-H8CA-AR-ac26be1a
+Admin Kompetisi UX Design, benerfadesholo8, 42xIwXZXkE, 03-H8CA-AR-ac26be1a
+Admin Kompetisi Software Development, softwcklungholo8, kbheXF68ZK, 03-H8CA-AR-ac26be1a
+Admin Kompetisi Bisnis TIK, geschaftholo8, t9p3rCA49C, 03-H8CA-AR-ac26be1a
+Admin Kompetisi Game Development, wicklungholo8, CKcdauJbdX, 03-H8CA-AR-ac26be1a
+Admin Kompetisi Karya Tulis Ilmiah, ktiverwerholo8, HAnfkdaXpl, 03-H8CA-AR-ac26be1a

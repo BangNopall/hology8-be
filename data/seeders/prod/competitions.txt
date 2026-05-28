@@ -1,0 +1,8 @@
+Competitive programming, Ini adalah lomba CP 
+Capture The Flag, Ini adalah lomba CTF 
+Data Mining, Ini adalah lomba DS 
+UX Design, Ini adalah lomba UIUX
+Software Development, Ini adalah lomba FE dan BE
+Bisnis TIK, Ini adalah lomba PM 
+Game Development, Ini adalah lomba gim
+Karya Tulis Ilmiah, Ini adalah lomba KTI

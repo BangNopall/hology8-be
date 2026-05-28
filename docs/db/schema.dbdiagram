@@ -1,0 +1,131 @@
+Table users {
+  id UUID [primary key]
+  email VARCHAR(200) [unique]
+  password VARCHAR(255)
+  fullname VARCHAR(200)
+  birth_date DATE
+  wa_number VARCHAR(20) [unique]
+  id_line VARCHAR(50) [unique]
+  id_discord VARCHAR(50) [unique]
+  id_student VARCHAR(50)
+  expired_token TIMESTAMP
+  email_verified_token VARCHAR(100)
+  forgot_password_token VARCHAR(100)
+  email_is_verified BOOL 
+  ktm_image_link VARCHAR(255)
+  follow_proof_link VARCHAR(255)
+  share_proof_link VARCHAR(255)
+  city VARCHAR(100)
+  home_address VARCHAR(100) 
+  university_id INTEGER [ref: > universities.id]
+  province_id INTEGER [ref: > provinces.id]
+  workshop_id INTEGER [ref: > workshops.id] 
+}
+
+Table seminar_attendances {
+  user_id UUID [ref: > users.id]
+  seminar_id INTEGER [ref: > seminars.id]
+  seminar_attendance_token VARCHAR(100) 
+  is_attended BOOL 
+  created_at TIMESTAMP 
+  updated_at TIMESTAMP 
+}
+
+Table universities {
+  id INTEGER [primary key, increment]
+  university_name VARCHAR(150) [unique]
+}
+
+Table provinces {
+  id INTEGER [primary key, increment]
+  province_name VARCHAR(200) [unique]
+}
+
+Table teams {
+  id VARCHAR(50) [primary key]
+  leader_id uuid [ref: - users.id]
+  competition_id INTEGER [ref: > competitions.id]
+  university_id INTEGER [ref: > universities.id]
+  team_name VARCHAR(150) [unique]
+  join_token VARCHAR(20) [unique] 
+  sender_payment_name VARCHAR(70)
+  bank_account_number VARCHAR(70)
+  bank_name VARCHAR(70)
+  payment_proof_link VARCHAR(255)
+  twibbon_proof_link VARCHAR(255)
+  proposal_doc_link VARCHAR(255)
+  video_link VARCHAR(255)
+  team_status STATUS  
+  team_phase PHASE
+  created_at TIMESTAMP 
+  updated_at TIMESTAMP
+}
+
+enum PHASE {
+  ELIMINATION
+  FINAL
+  DISQUALIFIED
+}
+
+enum STATUS {
+  WAITING
+  REJECTED
+  VERIFIED
+}
+
+Table detail_teams {
+  user_id uuid [ref: > users.id]
+  team_id VARCHAR(50) [ref: > teams.id]
+  joined_at TIMESTAMP 
+  // unique(user_id, team_id)
+}
+
+Table competitions {
+  id integer [primary key, increment]
+  competition_name VARCHAR(50) [unique]
+  competition_desc TEXT 
+}
+
+Table seminars {
+  id integer [primary key, increment]
+  seminar_name varchar(50)
+  seminar_theme varchar(100)
+  seminar_description TEXT 
+  seminar_lecturer_name VARCHAR(100)
+}
+
+Table announcements {
+  id INTEGER [primary key, increment]
+  admin_id UUID [ref: > admins.id]
+  team_id VARCHAR(50) [ref: > teams.id]
+  competition_id INTEGER [ref: > competitions.id]
+  description TEXT 
+  created_at TIMESTAMP
+}
+
+Table workshops {
+  id INTEGER [primary key, increment]
+  workshop_name VARCHAR(50)
+  workshop_theme VARCHAR(100)
+  workshop_description TEXT 
+}
+
+Table admins {
+  id UUID [primary key]
+  fullname VARCHAR(200)
+  username VARCHAR(200) 
+  passsword VARCHAR(255)
+  role_id VARCHAR(20) [ref : > roles.id]
+}
+
+Table logs {
+  id INTEGER [primary key, increment]
+  admin_id UUID [ref: > admins.id]
+  action VARCHAR(255)
+  created_at TIMESTAMP
+}
+
+Table roles {
+  id VARCHAR(20) [primary key]
+  role_name VARCHAR(50) [unique]
+}

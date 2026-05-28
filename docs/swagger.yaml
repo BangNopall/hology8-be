@@ -1,0 +1,2656 @@
+basePath: /api/v1
+definitions:
+  dto.AdminLogin:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  dto.AdminLoginResponse:
+    properties:
+      token:
+        type: string
+    type: object
+  dto.AnnouncementRequest:
+    properties:
+      adminID:
+        type: string
+      competition_id:
+        type: integer
+      description:
+        type: string
+      id:
+        type: integer
+      team_id:
+        type: string
+    required:
+    - description
+    type: object
+  dto.AnnouncementResponse:
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  dto.CompetitionRequest:
+    properties:
+      competition_desc:
+        type: string
+      competition_link_wa:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  dto.CompetitionResponse:
+    properties:
+      announcements:
+        items:
+          $ref: '#/definitions/dto.AnnouncementResponse'
+        type: array
+      competition_desc:
+        type: string
+      competition_link_wa:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      teams:
+        items:
+          $ref: '#/definitions/dto.TeamResponse'
+        type: array
+    type: object
+  dto.EmailMessage:
+    properties:
+      content:
+        type: string
+      name:
+        items:
+          type: string
+        type: array
+      subject:
+        type: string
+    type: object
+  dto.LogResponse:
+    properties:
+      action:
+        type: string
+      created_at:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: integer
+    type: object
+  dto.PaginationResponse:
+    properties:
+      page:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  dto.PartnerResponse:
+    properties:
+      id:
+        type: integer
+      link:
+        type: string
+      name:
+        type: string
+    type: object
+  dto.PartnerTypeResponse:
+    properties:
+      id:
+        type: integer
+      partner_type_name:
+        type: string
+    type: object
+  dto.PartnersResponse:
+    properties:
+      partners:
+        items:
+          $ref: '#/definitions/dto.PartnerResponse'
+        type: array
+    type: object
+  dto.PresenceCheckResponse:
+    properties:
+      created_at:
+        type: string
+      exists:
+        type: boolean
+      user_id:
+        type: string
+    type: object
+  dto.PresenceCreateRequest:
+    properties:
+      user_id:
+        type: string
+    required:
+    - user_id
+    type: object
+  dto.PresenceCreateResponse:
+    properties:
+      created_at:
+        type: string
+      fullname:
+        type: string
+      team_name:
+        type: string
+      user_id:
+        type: string
+    type: object
+  dto.PresenceListItem:
+    properties:
+      created_at:
+        type: string
+      fullname:
+        type: string
+      team_name:
+        type: string
+      user_id:
+        type: string
+    type: object
+  dto.PresenceListResponse:
+    properties:
+      pagination:
+        $ref: '#/definitions/dto.PaginationResponse'
+      presences:
+        items:
+          $ref: '#/definitions/dto.PresenceListItem'
+        type: array
+    type: object
+  dto.ProvinceResponse:
+    properties:
+      id:
+        type: integer
+      province_name:
+        type: string
+    type: object
+  dto.TeamCounter:
+    properties:
+      disqualified_team:
+        type: integer
+      eliminated_team:
+        type: integer
+      final_team:
+        type: integer
+      onhold_team:
+        type: integer
+      verified_team:
+        type: integer
+    type: object
+  dto.TeamNUnivCounter:
+    properties:
+      team_counter:
+        type: integer
+      univ_counter:
+        type: integer
+    type: object
+  dto.TeamPaginationResponse:
+    properties:
+      counter:
+        $ref: '#/definitions/dto.TeamCounter'
+      pagination:
+        $ref: '#/definitions/dto.PaginationResponse'
+      teams:
+        items:
+          $ref: '#/definitions/dto.TeamResponse'
+        type: array
+    type: object
+  dto.TeamRegister:
+    properties:
+      competition_id:
+        type: integer
+      team_name:
+        maxLength: 50
+        minLength: 5
+        type: string
+    required:
+    - competition_id
+    - team_name
+    type: object
+  dto.TeamResponse:
+    properties:
+      announcements:
+        items:
+          $ref: '#/definitions/dto.AnnouncementResponse'
+        type: array
+      bank_account_number:
+        type: string
+      bank_name:
+        type: string
+      competition:
+        $ref: '#/definitions/dto.CompetitionResponse'
+      created_at:
+        type: string
+      id:
+        type: string
+      join_token:
+        type: string
+      leader:
+        $ref: '#/definitions/dto.UserResponse'
+      members:
+        items:
+          $ref: '#/definitions/dto.UserResponse'
+        type: array
+      payment_proof_link:
+        type: string
+      phase:
+        $ref: '#/definitions/enums.Phase'
+      ppt_link:
+        type: string
+      proposal_doc_link:
+        type: string
+      sender_payment_name:
+        type: string
+      statement_letter_link:
+        type: string
+      status:
+        $ref: '#/definitions/enums.Status'
+      team_name:
+        type: string
+      twibbon_proof_link:
+        type: string
+      university:
+        $ref: '#/definitions/dto.UniversityResponse'
+      university_id:
+        type: integer
+      updated_at:
+        type: string
+      video_link:
+        type: string
+      voucher:
+        type: boolean
+      winner_place:
+        $ref: '#/definitions/enums.WinnerPlace'
+    type: object
+  dto.TeamUpdate:
+    properties:
+      bank_account_number:
+        maxLength: 60
+        type: string
+      bank_name:
+        maxLength: 50
+        type: string
+      leader_id:
+        type: string
+      phase:
+        $ref: '#/definitions/enums.Phase'
+      ppt_link:
+        maxLength: 255
+        type: string
+      sender_payment_name:
+        maxLength: 60
+        type: string
+      status:
+        $ref: '#/definitions/enums.Status'
+      university_id:
+        type: integer
+      video_link:
+        maxLength: 255
+        type: string
+      winner_place:
+        $ref: '#/definitions/enums.WinnerPlace'
+    type: object
+  dto.UniversityResponse:
+    properties:
+      id:
+        type: integer
+      university_name:
+        type: string
+    type: object
+  dto.UserForgotPassword:
+    properties:
+      email:
+        type: string
+    required:
+    - email
+    type: object
+  dto.UserLogin:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  dto.UserLoginResponse:
+    properties:
+      token:
+        type: string
+    type: object
+  dto.UserOuathLink:
+    properties:
+      redirect_link:
+        type: string
+    type: object
+  dto.UserPaginationResponse:
+    properties:
+      pagination:
+        $ref: '#/definitions/dto.PaginationResponse'
+      users:
+        items:
+          $ref: '#/definitions/dto.UserResponse'
+        type: array
+    type: object
+  dto.UserRegister:
+    properties:
+      confirm_password:
+        maxLength: 40
+        minLength: 6
+        type: string
+      email:
+        type: string
+      password:
+        maxLength: 40
+        minLength: 6
+        type: string
+    required:
+    - confirm_password
+    - email
+    - password
+    type: object
+  dto.UserResetPassword:
+    properties:
+      confirm_password:
+        maxLength: 20
+        minLength: 6
+        type: string
+      password:
+        maxLength: 20
+        minLength: 6
+        type: string
+    required:
+    - confirm_password
+    - password
+    type: object
+  dto.UserResponse:
+    properties:
+      birth_date:
+        type: string
+      city:
+        type: string
+      email:
+        type: string
+      email_is_verified:
+        type: boolean
+      email_verified_token:
+        type: string
+      follow_proof_link:
+        type: string
+      forgot_password_token:
+        type: string
+      fullname:
+        type: string
+      home_address:
+        type: string
+      id:
+        type: string
+      id_discord:
+        type: string
+      id_line:
+        type: string
+      id_student:
+        type: string
+      ktm_image_link:
+        type: string
+      password:
+        type: string
+      province:
+        $ref: '#/definitions/dto.ProvinceResponse'
+      province_id:
+        type: integer
+      share_proof_link:
+        type: string
+      university:
+        $ref: '#/definitions/dto.UniversityResponse'
+      university_id:
+        type: integer
+      wa_number:
+        type: string
+    type: object
+  dto.UserTeamsResponse:
+    properties:
+      teams:
+        items:
+          $ref: '#/definitions/dto.TeamResponse'
+        type: array
+    type: object
+  dto.UserUpdate:
+    properties:
+      birth_date:
+        type: string
+      city:
+        maxLength: 70
+        type: string
+      fullname:
+        maxLength: 100
+        type: string
+      id_discord:
+        maxLength: 70
+        type: string
+      id_line:
+        maxLength: 70
+        type: string
+      id_student:
+        maxLength: 70
+        type: string
+      password:
+        type: string
+      province_id:
+        type: integer
+      university_id:
+        type: integer
+      wa_number:
+        type: string
+    type: object
+  dto.VoucherRedeem:
+    properties:
+      id:
+        type: string
+      team_id:
+        type: string
+    type: object
+  dto.VoucherRequest:
+    properties:
+      id:
+        type: string
+    type: object
+  dto.VoucherResponse:
+    properties:
+      id:
+        type: string
+      team_id:
+        type: string
+    type: object
+  enums.Phase:
+    enum:
+    - Elimination
+    - Eliminated
+    - Final
+    - Disqualified
+    type: string
+    x-enum-varnames:
+    - Elimination
+    - Eliminated
+    - Final
+    - Disqualified
+  enums.Status:
+    enum:
+    - Waiting
+    - Rejected
+    - Verified
+    type: string
+    x-enum-varnames:
+    - Waiting
+    - Rejected
+    - Verified
+  enums.WinnerPlace:
+    enum:
+    - First
+    - Second
+    - Third
+    - Default
+    type: string
+    x-enum-varnames:
+    - First
+    - Second
+    - Third
+    - Default
+  response.ErrorResponse:
+    properties:
+      code:
+        type: integer
+      error:
+        type: string
+      message:
+        type: string
+      status:
+        $ref: '#/definitions/response.Status'
+    type: object
+  response.Response:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+      status:
+        $ref: '#/definitions/response.Status'
+    type: object
+  response.Status:
+    enum:
+    - success
+    - fail
+    - error
+    type: string
+    x-enum-varnames:
+    - Success
+    - Fail
+    - Error
+host: api.hology.id
+info:
+  contact: {}
+  description: This is Hology 8 API Documentation
+  title: Hology 8 API
+  version: "1.0"
+paths:
+  /admins/login:
+    post:
+      consumes:
+      - application/json
+      description: Login for admin
+      parameters:
+      - description: Admin login
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AdminLogin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login success
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Status Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Status Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: Status Request Timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Status Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Login
+      tags:
+      - Admins
+  /admins/send-email:
+    post:
+      consumes:
+      - application/json
+      description: Send email to all users/user who join a competition/a leader of
+        a team
+      parameters:
+      - description: 'Relation to loaded. Available: all, team, competition. Usage
+          example: ?to=all'
+        in: query
+        name: to
+        required: true
+        type: string
+      - description: Email message. name is required if to is team/competition
+        in: body
+        name: email
+        required: true
+        schema:
+          $ref: '#/definitions/dto.EmailMessage'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Email sent
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.AdminLoginResponse'
+              type: object
+        "400":
+          description: Status Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Status Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: Status Request Timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Status Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Send Email
+      tags:
+      - Admins
+  /announcements:
+    get:
+      description: Fetch announcements by to. If team_id and competition_id is empty,
+        then it will fetch all announcements to all users
+      parameters:
+      - description: Team ID
+        in: query
+        name: team_id
+        type: string
+      - description: Competition ID
+        in: query
+        name: competition_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.AnnouncementResponse'
+                  type: array
+              type: object
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Fetch announcements by To
+      tags:
+      - Announcements
+    post:
+      consumes:
+      - application/json
+      description: Create announcement only by admin
+      parameters:
+      - description: Announcement request body
+        in: body
+        name: AnnouncementRequest
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AnnouncementRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  type: object
+              type: object
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Team/Competition not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Create announcement
+      tags:
+      - Announcements
+  /announcements/{id}:
+    delete:
+      description: Delete announcement only by admin
+      parameters:
+      - description: Announcement ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  type: object
+              type: object
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Announcement/Team/Competition not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Delete announcement
+      tags:
+      - Announcements
+    put:
+      description: Update announcement only by admin
+      parameters:
+      - description: Announcement ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Announcement request body
+        in: body
+        name: AnnouncementRequest
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AnnouncementRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  type: object
+              type: object
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Announcement/Team/Competition not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Update announcement
+      tags:
+      - Announcements
+  /competitions:
+    get:
+      description: Fetch all available competitions data
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.CompetitionResponse'
+                  type: array
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch all competitions data
+      tags:
+      - Competitions
+  /competitions/{id}:
+    get:
+      description: Fetch one competition data by ID
+      parameters:
+      - description: Competition ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.CompetitionResponse'
+              type: object
+        "404":
+          description: Competition with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch competition data by ID
+      tags:
+      - Competitions
+    put:
+      consumes:
+      - application/json
+      description: Update competition data
+      parameters:
+      - description: Competition ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Competition Payload
+        in: body
+        name: CompetitionPayload
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CompetitionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  type: object
+              type: object
+        "400":
+          description: Bad data request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized Admin
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Competition with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - UserAuth: []
+      - ApiKeyAuth: []
+      summary: Update competition data  (Admin Service)
+      tags:
+      - Competitions
+  /competitions/resource/admin:
+    get:
+      description: Fetch all available competitions data
+      parameters:
+      - description: 'Relation to loaded. Available: team,announcement. Usage: ?relation=team'
+        in: query
+        name: relation
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.CompetitionResponse'
+                  type: array
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Fetch all competitions data
+      tags:
+      - Competitions
+  /competitions/resource/admin{id}:
+    get:
+      description: Fetch one competition data by ID
+      parameters:
+      - description: Competition ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 'Relation to loaded. Available: team,announcement. Usage: ?relation=team'
+        in: query
+        name: relation
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.CompetitionResponse'
+              type: object
+        "404":
+          description: Competition with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Fetch competition data by ID
+      tags:
+      - Competitions
+  /logs:
+    get:
+      description: Fetch all applications logs
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.LogResponse'
+                  type: array
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - UserAuth: []
+      - ApiKeyAuth: []
+      summary: Fetch all applications logs only by Admin
+      tags:
+      - Logs
+  /partners:
+    get:
+      description: Fetch all available partners data
+      parameters:
+      - description: Partner type ID
+        in: query
+        name: partner_type_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PartnersResponse'
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch all partners data
+      tags:
+      - Partners
+    post:
+      description: Create new partner
+      parameters:
+      - description: Partner name
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: Partner type ID
+        in: formData
+        name: partner_type_id
+        required: true
+        type: integer
+      - description: Partner image file
+        in: formData
+        name: image_file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PartnerResponse'
+              type: object
+        "400":
+          description: Invalid request payload
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Create new partner
+      tags:
+      - Partners
+  /partners/{id}:
+    delete:
+      description: Delete partner data
+      parameters:
+      - description: Partner ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Partner with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Delete partner data
+      tags:
+      - Partners
+    get:
+      description: Fetch one partner data by ID
+      parameters:
+      - description: Partner ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PartnerResponse'
+              type: object
+        "404":
+          description: Partner with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch partner data by ID
+      tags:
+      - Partners
+    put:
+      description: Update partner data
+      parameters:
+      - description: Partner ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Partner name
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: Partner type ID
+        in: formData
+        name: partner_type_id
+        required: true
+        type: integer
+      - description: Partner image file
+        in: formData
+        name: image_file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PartnerResponse'
+              type: object
+        "400":
+          description: Invalid request payload
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Partner with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Update partner data
+      tags:
+      - Partners
+  /partners/types:
+    get:
+      description: Fetch all available partner types data
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.PartnerTypeResponse'
+                  type: array
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch all partner types data
+      tags:
+      - Partners
+  /presences:
+    get:
+      description: Paginated list sorted by created_at DESC (newest first)
+      parameters:
+      - description: Page number (default 1)
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully fetch presences
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PresenceListResponse'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data: {}
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: List presences (admin)
+      tags:
+      - Presences
+    post:
+      consumes:
+      - application/json
+      description: Create presence for a user (admin only)
+      parameters:
+      - description: Create presence payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/dto.PresenceCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully create presence
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PresenceCreateResponse'
+              type: object
+        "400":
+          description: Bad request
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data: {}
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data: {}
+              type: object
+        "404":
+          description: User not found
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data: {}
+              type: object
+        "409":
+          description: Presence already exists
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data: {}
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data: {}
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create Presence
+      tags:
+      - Presences
+  /presences/{user_id}:
+    get:
+      description: Check whether a user has presenced (by user_id)
+      parameters:
+      - description: User ID (UUID)
+        in: path
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: presence status
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PresenceCheckResponse'
+              type: object
+        "400":
+          description: Bad request
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data: {}
+              type: object
+        "404":
+          description: Presence not found
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PresenceCheckResponse'
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Check user's presence
+      tags:
+      - Presences
+  /provinces:
+    get:
+      description: Fetch all available provinces data
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.ProvinceResponse'
+                  type: array
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch all provinces data
+      tags:
+      - Provinces
+  /provinces/{id}:
+    get:
+      description: Fetch one province data by ID
+      parameters:
+      - description: Province ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.ProvinceResponse'
+              type: object
+        "404":
+          description: Province with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch provinces data by ID
+      tags:
+      - Provinces
+  /teams:
+    get:
+      description: Fetch all teams
+      parameters:
+      - description: Competition to filter
+        in: query
+        name: competition_id
+        type: string
+      - description: Status to filter. Look up for enum Status to see what's available
+        in: query
+        name: status
+        type: string
+      - description: Phase to filter. Look up for enum Status to see what's available
+        in: query
+        name: phase
+        type: string
+      - description: Winner place to filter. Look up for enum Status to see what's
+          available
+        in: query
+        name: winner_place
+        type: string
+      - description: Pagination Page
+        in: query
+        name: page
+        type: integer
+      - description: Team name to filter
+        in: query
+        name: team_name
+        type: string
+      - description: Sort by latest or oldest
+        in: query
+        name: sort_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.TeamPaginationResponse'
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Fetch All Teams (Admin Service)
+      tags:
+      - Teams
+    post:
+      description: Register a team to a competition
+      parameters:
+      - description: Team Register Payload
+        in: body
+        name: TeamPayload
+        required: true
+        schema:
+          $ref: '#/definitions/dto.TeamRegister'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: User already registered to same competition
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: User's email is not verified yet
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Candidate leader is already a leader in another team
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Register a team
+      tags:
+      - Teams
+  /teams/{id}:
+    get:
+      description: Fetch team data
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.TeamResponse'
+              type: object
+        "404":
+          description: Team Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Fetch Team Data
+      tags:
+      - Teams
+    put:
+      description: Upload team data
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Team
+        in: body
+        name: TeamPayload
+        required: true
+        schema:
+          $ref: '#/definitions/dto.TeamUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: User is not part of the team
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "403":
+          description: Forbidden to update some attributes
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Team not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Update Team Data
+      tags:
+      - Teams
+  /teams/{id}/leader/{leaderId}:
+    put:
+      description: Update team leader
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Leader ID
+        in: path
+        name: leaderId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: New leader already registered to same competition
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Team not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Candidate leader is already a leader in another team
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Update Team Leader (Admin Service)
+      tags:
+      - Teams
+  /teams/{id}/members/{memberId}:
+    delete:
+      description: Delete a member from a team
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Member ID
+        in: path
+        name: memberId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Team or Member not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Delete Member (Admin Service)
+      tags:
+      - Teams
+  /teams/{id}/payment-proof:
+    put:
+      description: Upload team payment proof
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: File to upload
+        in: formData
+        name: payment_file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: User is not part of the team
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "413":
+          description: Requested file is too large
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Upload payment proof
+      tags:
+      - Teams
+  /teams/{id}/proposal-doc:
+    put:
+      description: Upload team proposal doc
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: File to upload
+        in: formData
+        name: proposal_file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: User is not part of the team
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Upload proposal doc
+      tags:
+      - Teams
+  /teams/{id}/statement-letter:
+    put:
+      description: Upload team statement letter
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: File to upload
+        in: formData
+        name: statement_file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: User is not part of the team
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Upload statement letter
+      tags:
+      - Teams
+  /teams/{id}/status:
+    put:
+      description: Update team status, phase, or winner place
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Team
+        in: body
+        name: TeamPayload
+        required: true
+        schema:
+          $ref: '#/definitions/dto.TeamUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Invalid enum status, phase or winner place update
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Team not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Update Team Status, Phase or WinnerPlace (Admin Service)
+      tags:
+      - Teams
+  /teams/{id}/twibbon-proof:
+    put:
+      description: Upload team twibbon proof
+      parameters:
+      - description: Team ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: File to upload
+        in: formData
+        name: twibbon_file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: User is not part of the team
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "413":
+          description: Requested file is too large
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Upload twibbon proof
+      tags:
+      - Teams
+  /teams/join/{token}:
+    put:
+      description: Join team by token
+      parameters:
+      - description: Token
+        in: path
+        name: token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  type: object
+              type: object
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: User's email is not verified yet
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Team not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Join team
+      tags:
+      - Teams
+  /teams/statistic:
+    get:
+      description: Count team and university
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.TeamNUnivCounter'
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Count Team and University
+      tags:
+      - Teams
+  /teams/user:
+    get:
+      description: Fetch the team user has joined or created
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.UserTeamsResponse'
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Fetch User Teams
+      tags:
+      - Teams
+  /universities:
+    get:
+      description: Fetch all available universities data
+      parameters:
+      - description: University name
+        in: query
+        name: name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.UniversityResponse'
+                  type: array
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch all universities data
+      tags:
+      - Universities
+  /universities/{id}:
+    get:
+      description: Fetch one university data by ID
+      parameters:
+      - description: University ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.UniversityResponse'
+                  type: array
+              type: object
+        "404":
+          description: University with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch universities data by ID
+      tags:
+      - Universities
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Fetch all users data
+      parameters:
+      - description: Pagination Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.UserPaginationResponse'
+              type: object
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - UserAuth: []
+      - ApiKeyAuth: []
+      summary: Fetch All Users (Admin Service)
+      tags:
+      - Users
+    put:
+      consumes:
+      - application/json
+      description: Update user profile
+      parameters:
+      - description: User update
+        in: body
+        name: updateUser
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - UserAuth: []
+      - ApiKeyAuth: []
+      summary: Update User
+      tags:
+      - Users
+  /users/forgot-password:
+    post:
+      consumes:
+      - application/json
+      description: This api is used to reset password, user will get email to reset
+        passwor after hit this endpoint
+      parameters:
+      - description: User forgot password
+        in: body
+        name: forgotpassword
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserForgotPassword'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Forgot Password
+      tags:
+      - Users
+  /users/forgot-password/{token}:
+    put:
+      consumes:
+      - application/json
+      description: This api is used to reset user password
+      parameters:
+      - description: Token
+        in: path
+        name: token
+        required: true
+        type: string
+      - description: User reset password
+        in: body
+        name: resetpassword
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserResetPassword'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.UserLoginResponse'
+              type: object
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Reset Password
+      tags:
+      - Users
+  /users/ktm-image:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload KTM image for user
+      parameters:
+      - description: KTM image
+        in: formData
+        name: ktm_image_link
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "413":
+          description: request entity too large
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - UserAuth: []
+      - ApiKeyAuth: []
+      summary: Upload KTM Image
+      tags:
+      - Users
+  /users/login:
+    post:
+      consumes:
+      - application/json
+      description: Login with email for user
+      parameters:
+      - description: User login
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserLogin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/dto.UserLoginResponse'
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Login with email
+      tags:
+      - Users
+  /users/logout:
+    post:
+      consumes:
+      - application/json
+      description: Logout user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - UserAuth: []
+      - ApiKeyAuth: []
+      summary: Logout
+      tags:
+      - Users
+  /users/oauth:
+    get:
+      consumes:
+      - application/json
+      description: OAuth is used to authenticate user with Google
+      produces:
+      - application/json
+      responses:
+        "302":
+          description: ok
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.UserOuathLink'
+              type: object
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - Users
+  /users/oauth/callback:
+    get:
+      consumes:
+      - application/json
+      description: OAuth callback is used when Google needs to call my endpoint to
+        process user information after authentication
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Oauth Callback
+      tags:
+      - Users
+  /users/profile:
+    get:
+      consumes:
+      - application/json
+      description: Fetch user profile
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.UserResponse'
+              type: object
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - UserAuth: []
+      - ApiKeyAuth: []
+      summary: Fetch Profile
+      tags:
+      - Users
+  /users/proof:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload proof image for user
+      parameters:
+      - description: Follow Proof Image
+        in: formData
+        name: follow-proof
+        type: file
+      - description: Share Proof Image
+        in: formData
+        name: share-proof
+        type: file
+      - description: 'Proof type. Available: follow-proof, share-proof'
+        in: query
+        name: proof
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "413":
+          description: request entity too large
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - UserAuth: []
+      - ApiKeyAuth: []
+      summary: Upload Proof Image
+      tags:
+      - Users
+  /users/register:
+    post:
+      consumes:
+      - application/json
+      description: Register for user
+      parameters:
+      - description: User register
+        in: body
+        name: register
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserRegister'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Register
+      tags:
+      - Users
+  /users/verify-email/{email}/{emailVerPass}:
+    get:
+      consumes:
+      - application/json
+      description: Verify email for user
+      parameters:
+      - description: Email
+        in: path
+        name: email
+        required: true
+        type: string
+      - description: Email verification password
+        in: path
+        name: emailVerPass
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "408":
+          description: request timeout
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Verify Email
+      tags:
+      - Users
+  /vouchers:
+    get:
+      description: Fetch all available vouchers data
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/dto.VoucherResponse'
+                  type: array
+              type: object
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Fetch all vouchers data (Admin Service)
+      tags:
+      - Vouchers
+    post:
+      consumes:
+      - application/json
+      description: Insert voucher to be redeemed by a team
+      parameters:
+      - description: Voucher creation request
+        in: body
+        name: VoucherPayload
+        required: true
+        schema:
+          $ref: '#/definitions/dto.VoucherRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Voucher ID already been used
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Insert voucher (Admin Service)
+      tags:
+      - Vouchers
+  /vouchers/{id}:
+    get:
+      description: Fetch one voucher data by ID
+      parameters:
+      - description: Voucher ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.VoucherResponse'
+              type: object
+        "404":
+          description: Voucher with requested ID not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Fetch voucher data by ID (Admin Service)
+      tags:
+      - Vouchers
+  /vouchers/redeem:
+    post:
+      consumes:
+      - application/json
+      description: Redeems voucher that are provided by team
+      parameters:
+      - description: Voucher redeem request
+        in: body
+        name: VoucherPayload
+        required: true
+        schema:
+          $ref: '#/definitions/dto.VoucherRedeem'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Voucher not found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Voucher already been redeemed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      - UserAuth: []
+      summary: Redeems voucher
+      tags:
+      - Vouchers
+schemes:
+- https
+securityDefinitions:
+  ApiKeyAuth:
+    description: 'API Key for accessing all endpoints. Type: Key TOKEN'
+    in: header
+    name: x-api-key
+    type: apiKey
+  UserAuth:
+    description: 'API Key for accessing protected user and admin endpoints. Type:
+      Bearer TOKEN'
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
