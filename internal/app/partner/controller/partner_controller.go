@@ -4,12 +4,12 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/internal/middlewares"
+	"github.com/BangNopall/hology8-be/pkg/helpers/http/response"
 	"github.com/gin-gonic/gin"
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/internal/middlewares"
-	"github.com/hology8/hology-be/pkg/helpers/http/response"
 )
 
 type partnerController struct {

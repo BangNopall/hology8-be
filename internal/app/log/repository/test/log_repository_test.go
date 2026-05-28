@@ -9,11 +9,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"gorm.io/gorm"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/internal/app/log/repository"
-	pgsqlMock "github.com/hology8/hology-be/internal/infra/database/mock"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/internal/app/log/repository"
+	pgsqlMock "github.com/BangNopall/hology8-be/internal/infra/database/mock"
 )
 
 func TestInsertLog(t *testing.T) {

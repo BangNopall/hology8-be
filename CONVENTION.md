@@ -17,7 +17,7 @@ import (
     "github.com/gin-gonic/gin"
     "gorm.io/gorm"
 
-    "github.com/hology8/hology-be/pkg/log"
+    "github.com/BangNopall/hology8-be/pkg/log"
 )
 ```
 - if a function accepts more than 3 parameters, the parameters should be expanding towards bottom, not right. 

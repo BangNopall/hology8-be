@@ -13,9 +13,9 @@ func getLogger() *logrus.Logger {
 	currDate := time.Now().Format("2006-01-02")
 
 	pathMap := lfshook.PathMap{
-		logrus.InfoLevel:  "./data/logs/"+ currDate + ".log",
-		logrus.WarnLevel: "./data/logs/"+ currDate + ".log",
-		logrus.ErrorLevel: "./data/logs/"+ currDate + ".log",
+		logrus.InfoLevel:  "./data/logs/" + currDate + ".log",
+		logrus.WarnLevel:  "./data/logs/" + currDate + ".log",
+		logrus.ErrorLevel: "./data/logs/" + currDate + ".log",
 	}
 
 	log := logrus.New()
@@ -25,7 +25,7 @@ func getLogger() *logrus.Logger {
 		&logrus.JSONFormatter{},
 	))
 
-	return log 
+	return log
 }
 
 func Info(fields LogInfo, info string) {

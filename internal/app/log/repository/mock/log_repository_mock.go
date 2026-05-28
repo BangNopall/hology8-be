@@ -8,8 +8,8 @@ import (
 	context "context"
 	reflect "reflect"
 
+	entity "github.com/BangNopall/hology8-be/domain/entity"
 	gomock "github.com/golang/mock/gomock"
-	entity "github.com/hology8/hology-be/domain/entity"
 )
 
 // MockLogRepository is a mock of LogRepository interface.

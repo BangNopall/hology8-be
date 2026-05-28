@@ -7,10 +7,10 @@ package repository_mock
 import (
 	reflect "reflect"
 
+	dto "github.com/BangNopall/hology8-be/domain/dto"
+	entity "github.com/BangNopall/hology8-be/domain/entity"
 	gomock "github.com/golang/mock/gomock"
 	uuid "github.com/google/uuid"
-	dto "github.com/hology8/hology-be/domain/dto"
-	entity "github.com/hology8/hology-be/domain/entity"
 )
 
 // MockUserRepository is a mock of UserRepository interface.

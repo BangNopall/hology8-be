@@ -8,8 +8,8 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/pkg/log"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/pkg/log"
 )
 
 func Contains(search string, words []string) bool {

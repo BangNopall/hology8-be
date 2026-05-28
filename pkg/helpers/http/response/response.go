@@ -77,12 +77,12 @@ func Send(
 
 	if err != nil {
 		SendErrResp(
-			ctx,  
-			code, 
+			ctx,
+			code,
 			status,
 			message,
 			err,
-		)	
+		)
 	} else {
 		SendResp(
 			ctx,

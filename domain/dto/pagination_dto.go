@@ -3,14 +3,14 @@ package dto
 const DEFAULT_SIZE = 10
 
 type PaginationRequest struct {
-	Offset int 
-	Limit int 
-	Page int 
+	Offset int
+	Limit  int
+	Page   int
 }
 
 type PaginationResponse struct {
 	TotalPages int `json:"total_pages"`
-	Page int `json:"page"`
+	Page       int `json:"page"`
 }
 
 func NewPaginationRequest(page int) *PaginationRequest {
@@ -21,6 +21,6 @@ func NewPaginationRequest(page int) *PaginationRequest {
 	p.Offset = page * DEFAULT_SIZE
 	p.Limit = DEFAULT_SIZE
 	p.Page = page + 1
-	
-	return p 
+
+	return p
 }

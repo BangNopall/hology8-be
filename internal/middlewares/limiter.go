@@ -9,11 +9,11 @@ import (
 	"github.com/ulule/limiter/v3/drivers/store/memory"
 )
 
-func (m *Middleware)RateLimiter() gin.HandlerFunc {
+func (m *Middleware) RateLimiter() gin.HandlerFunc {
 	var (
 		rate = limiter.Rate{
 			Period: 1 * time.Hour,
-			Limit: 1000,
+			Limit:  1000,
 		}
 
 		store = memory.NewStore()

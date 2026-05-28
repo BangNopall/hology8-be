@@ -3,8 +3,8 @@ package dto
 import (
 	"time"
 
+	"github.com/BangNopall/hology8-be/domain/entity"
 	"github.com/google/uuid"
-	"github.com/hology8/hology-be/domain/entity"
 )
 
 type UserUpdate struct {

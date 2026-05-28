@@ -3,9 +3,9 @@ package dto
 import (
 	"time"
 
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/domain/enums"
 	"github.com/google/uuid"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/domain/enums"
 )
 
 type TeamRegister struct {

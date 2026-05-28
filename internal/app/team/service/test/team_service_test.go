@@ -11,15 +11,15 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/google/uuid"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/domain/enums"
-	mockCompetitionRepo "github.com/hology8/hology-be/internal/app/competition/repository/mock"
-	mockTeamRepo "github.com/hology8/hology-be/internal/app/team/repository/mock"
-	"github.com/hology8/hology-be/internal/app/team/service"
-	mockUserRepo "github.com/hology8/hology-be/internal/app/user/repository/mock"
-	mockAws "github.com/hology8/hology-be/pkg/aws/mock"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/domain/enums"
+	mockCompetitionRepo "github.com/BangNopall/hology8-be/internal/app/competition/repository/mock"
+	mockTeamRepo "github.com/BangNopall/hology8-be/internal/app/team/repository/mock"
+	"github.com/BangNopall/hology8-be/internal/app/team/service"
+	mockUserRepo "github.com/BangNopall/hology8-be/internal/app/user/repository/mock"
+	mockAws "github.com/BangNopall/hology8-be/pkg/aws/mock"
 )
 
 type mockObjects struct {

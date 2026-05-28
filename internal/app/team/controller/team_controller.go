@@ -8,13 +8,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/domain/enums"
-	"github.com/hology8/hology-be/internal/middlewares"
-	"github.com/hology8/hology-be/pkg/helpers/http/response"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/domain/enums"
+	"github.com/BangNopall/hology8-be/internal/middlewares"
+	"github.com/BangNopall/hology8-be/pkg/helpers/http/response"
 )
 
 type teamController struct {

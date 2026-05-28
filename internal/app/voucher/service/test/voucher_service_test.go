@@ -9,13 +9,13 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	teamMocks "github.com/hology8/hology-be/internal/app/team/repository/mock"
-	voucherMocks "github.com/hology8/hology-be/internal/app/voucher/repository/mock"
-	"github.com/hology8/hology-be/internal/app/voucher/service"
-	pgsqlMock "github.com/hology8/hology-be/internal/infra/database/mock"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	teamMocks "github.com/BangNopall/hology8-be/internal/app/team/repository/mock"
+	voucherMocks "github.com/BangNopall/hology8-be/internal/app/voucher/repository/mock"
+	"github.com/BangNopall/hology8-be/internal/app/voucher/service"
+	pgsqlMock "github.com/BangNopall/hology8-be/internal/infra/database/mock"
 )
 
 func TestFetchAll(t *testing.T) {

@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/domain/dto"
 )
 
 type universityService struct {

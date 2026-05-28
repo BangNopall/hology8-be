@@ -28,11 +28,11 @@ func NewAnnouncement(teamID string, competitionID int, description string, admin
 	}
 
 	if competitionID == 0 {
-		a.CompetitionID = nil 
+		a.CompetitionID = nil
 	}
 
 	if teamID == "" {
-		a.TeamID = nil 
+		a.TeamID = nil
 	}
 
 	return a

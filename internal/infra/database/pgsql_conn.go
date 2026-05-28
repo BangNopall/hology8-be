@@ -9,12 +9,12 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/internal/infra/env"
-	"github.com/hology8/hology-be/pkg/bcrypt"
-	"github.com/hology8/hology-be/pkg/helpers"
-	"github.com/hology8/hology-be/pkg/helpers/flag"
-	"github.com/hology8/hology-be/pkg/log"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/internal/infra/env"
+	"github.com/BangNopall/hology8-be/pkg/bcrypt"
+	"github.com/BangNopall/hology8-be/pkg/helpers"
+	"github.com/BangNopall/hology8-be/pkg/helpers/flag"
+	"github.com/BangNopall/hology8-be/pkg/log"
 )
 
 const SEEDERS_FILE_PATH = "data/seeders/"

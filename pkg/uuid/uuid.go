@@ -1,8 +1,8 @@
 package uuid
 
 import (
+	"github.com/BangNopall/hology8-be/pkg/log"
 	"github.com/google/uuid"
-	"github.com/hology8/hology-be/pkg/log"
 )
 
 type UUIDInterface interface {

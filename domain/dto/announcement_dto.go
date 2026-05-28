@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/hology8/hology-be/domain/entity"
+	"github.com/BangNopall/hology8-be/domain/entity"
 )
 
 type AnnouncementRequest struct {

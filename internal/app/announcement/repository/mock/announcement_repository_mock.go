@@ -8,8 +8,8 @@ import (
 	context "context"
 	reflect "reflect"
 
+	"github.com/BangNopall/hology8-be/domain/entity"
 	gomock "github.com/golang/mock/gomock"
-	"github.com/hology8/hology-be/domain/entity"
 )
 
 // MockAnnouncementRepository is a mock of AnnouncementRepository interface.

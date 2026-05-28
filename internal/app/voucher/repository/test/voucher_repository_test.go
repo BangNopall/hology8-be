@@ -7,10 +7,10 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/internal/app/voucher/repository"
-	pgsqlMock "github.com/hology8/hology-be/internal/infra/database/mock"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/internal/app/voucher/repository"
+	pgsqlMock "github.com/BangNopall/hology8-be/internal/infra/database/mock"
 )
 
 func TestFetchAll(t *testing.T) {

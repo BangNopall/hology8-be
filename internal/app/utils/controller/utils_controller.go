@@ -1,10 +1,9 @@
 package controller
 
 import (
-
 	"github.com/gin-gonic/gin"
 
-	response "github.com/hology8/hology-be/pkg/helpers/http/response"
+	response "github.com/BangNopall/hology8-be/pkg/helpers/http/response"
 )
 
 type utilsController struct {

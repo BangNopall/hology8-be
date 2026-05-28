@@ -8,11 +8,11 @@ import (
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/domain/enums"
-	"github.com/hology8/hology-be/internal/app/competition/repository"
-	pgsqlMock "github.com/hology8/hology-be/internal/infra/database/mock"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/domain/enums"
+	"github.com/BangNopall/hology8-be/internal/app/competition/repository"
+	pgsqlMock "github.com/BangNopall/hology8-be/internal/infra/database/mock"
 )
 
 func TestFetchAll(t *testing.T) {

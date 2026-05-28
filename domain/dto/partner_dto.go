@@ -1,6 +1,6 @@
 package dto
 
-import "github.com/hology8/hology-be/domain/entity"
+import "github.com/BangNopall/hology8-be/domain/entity"
 
 type PartnerTypeResponse struct {
 	ID   int    `json:"id"`

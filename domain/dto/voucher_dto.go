@@ -1,7 +1,7 @@
 package dto
 
 import (
-	"github.com/hology8/hology-be/domain/entity"
+	"github.com/BangNopall/hology8-be/domain/entity"
 )
 
 type VoucherResponse struct {

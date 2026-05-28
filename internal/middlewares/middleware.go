@@ -1,9 +1,9 @@
 package middlewares
 
 import (
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/pkg/jwt"
-	"github.com/hology8/hology-be/pkg/redis"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/pkg/jwt"
+	"github.com/BangNopall/hology8-be/pkg/redis"
 )
 
 type Middleware struct {

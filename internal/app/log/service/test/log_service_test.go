@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	logMocks "github.com/BangNopall/hology8-be/internal/app/log/repository/mock"
+	"github.com/BangNopall/hology8-be/internal/app/log/service"
 	"github.com/golang/mock/gomock"
 	"github.com/google/uuid"
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	logMocks "github.com/hology8/hology-be/internal/app/log/repository/mock"
-	"github.com/hology8/hology-be/internal/app/log/service"
 	"github.com/stretchr/testify/assert"
 )
 

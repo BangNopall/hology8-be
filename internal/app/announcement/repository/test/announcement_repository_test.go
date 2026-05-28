@@ -8,13 +8,13 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/internal/app/announcement/repository"
-	pgsqlMock "github.com/hology8/hology-be/internal/infra/database/mock"
-	_ "github.com/hology8/hology-be/pkg/log"
-	"github.com/hology8/hology-be/pkg/uuid"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/internal/app/announcement/repository"
+	pgsqlMock "github.com/BangNopall/hology8-be/internal/infra/database/mock"
+	_ "github.com/BangNopall/hology8-be/pkg/log"
+	"github.com/BangNopall/hology8-be/pkg/uuid"
 )
 
 func TestFetchAnnouncementByTo(t *testing.T) {

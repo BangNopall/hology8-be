@@ -10,14 +10,14 @@ import (
 
 	google "github.com/google/uuid"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/domain/enums"
-	"github.com/hology8/hology-be/pkg/aws"
-	"github.com/hology8/hology-be/pkg/helpers"
-	"github.com/hology8/hology-be/pkg/uuid"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/domain/enums"
+	"github.com/BangNopall/hology8-be/pkg/aws"
+	"github.com/BangNopall/hology8-be/pkg/helpers"
+	"github.com/BangNopall/hology8-be/pkg/uuid"
 )
 
 type teamService struct {

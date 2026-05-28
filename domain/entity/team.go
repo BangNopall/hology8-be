@@ -3,8 +3,8 @@ package entity
 import (
 	"time"
 
+	"github.com/BangNopall/hology8-be/domain/enums"
 	"github.com/google/uuid"
-	"github.com/hology8/hology-be/domain/enums"
 )
 
 type Team struct {

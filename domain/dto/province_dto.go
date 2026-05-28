@@ -1,6 +1,6 @@
 package dto
 
-import "github.com/hology8/hology-be/domain/entity"
+import "github.com/BangNopall/hology8-be/domain/entity"
 
 type ProvinceResponse struct {
 	ID   int    `json:"id" `
@@ -9,7 +9,7 @@ type ProvinceResponse struct {
 
 func ProvinceEntityToDto(province *entity.Province) ProvinceResponse {
 	return ProvinceResponse{
-		ID: province.ID,
+		ID:   province.ID,
 		Name: province.Name,
 	}
 }

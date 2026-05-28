@@ -8,13 +8,13 @@ import (
 
 	"gorm.io/gorm"
 
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/pkg/helpers"
+	"github.com/BangNopall/hology8-be/pkg/log"
 	"github.com/google/uuid"
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/pkg/helpers"
-	"github.com/hology8/hology-be/pkg/log"
 )
 
 type teamRepository struct {

@@ -4,13 +4,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/internal/app/user/repository"
+	dbMock "github.com/BangNopall/hology8-be/internal/infra/database/mock"
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/google/uuid"
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/internal/app/user/repository"
-	dbMock "github.com/hology8/hology-be/internal/infra/database/mock"
 	"github.com/stretchr/testify/assert"
 	"gorm.io/gorm"
 )

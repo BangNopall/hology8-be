@@ -8,11 +8,11 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	mocks "github.com/hology8/hology-be/internal/app/province/repository/mock"
-	"github.com/hology8/hology-be/internal/app/province/service"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	mocks "github.com/BangNopall/hology8-be/internal/app/province/repository/mock"
+	"github.com/BangNopall/hology8-be/internal/app/province/service"
 )
 
 func TestFetchAll(t *testing.T) {

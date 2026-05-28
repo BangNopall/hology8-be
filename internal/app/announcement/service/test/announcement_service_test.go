@@ -5,14 +5,14 @@ import (
 	"testing"
 	"time"
 
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	announcementMocks "github.com/BangNopall/hology8-be/internal/app/announcement/repository/mock"
+	"github.com/BangNopall/hology8-be/internal/app/announcement/service"
+	competitionMocks "github.com/BangNopall/hology8-be/internal/app/competition/repository/mock"
+	teamMocks "github.com/BangNopall/hology8-be/internal/app/team/repository/mock"
 	"github.com/golang/mock/gomock"
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	announcementMocks "github.com/hology8/hology-be/internal/app/announcement/repository/mock"
-	"github.com/hology8/hology-be/internal/app/announcement/service"
-	competitionMocks "github.com/hology8/hology-be/internal/app/competition/repository/mock"
-	teamMocks "github.com/hology8/hology-be/internal/app/team/repository/mock"
 	"github.com/stretchr/testify/assert"
 )
 

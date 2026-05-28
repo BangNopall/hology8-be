@@ -6,8 +6,8 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"github.com/hology8/hology-be/internal/infra/env"
-	"github.com/hology8/hology-be/pkg/log"
+	"github.com/BangNopall/hology8-be/internal/infra/env"
+	"github.com/BangNopall/hology8-be/pkg/log"
 )
 
 type RedisInterface interface {

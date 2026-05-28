@@ -3,8 +3,8 @@ package contracts
 import (
 	"context"
 
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
 	"gorm.io/gorm"
 )
 

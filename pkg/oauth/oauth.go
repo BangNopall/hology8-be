@@ -7,8 +7,8 @@ import (
 	oauth2 "golang.org/x/oauth2"
 	google "golang.org/x/oauth2/google"
 
-	env "github.com/hology8/hology-be/internal/infra/env"
-	log "github.com/hology8/hology-be/pkg/log"
+	env "github.com/BangNopall/hology8-be/internal/infra/env"
+	log "github.com/BangNopall/hology8-be/pkg/log"
 )
 
 type OauthInterface interface {

@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/hology8/hology-be/internal/infra/database"
-	"github.com/hology8/hology-be/internal/infra/env"
-	"github.com/hology8/hology-be/internal/infra/server"
+	"github.com/BangNopall/hology8-be/internal/infra/database"
+	"github.com/BangNopall/hology8-be/internal/infra/env"
+	"github.com/BangNopall/hology8-be/internal/infra/server"
 )
 
 // @title						Hology 8 API

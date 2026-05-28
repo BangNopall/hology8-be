@@ -7,9 +7,9 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/internal/infra/env"
-	"github.com/hology8/hology-be/pkg/log"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/internal/infra/env"
+	"github.com/BangNopall/hology8-be/pkg/log"
 )
 
 type JwtInterface interface {

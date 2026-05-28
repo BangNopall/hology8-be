@@ -6,16 +6,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/hology8/hology-be/domain"
-	"github.com/hology8/hology-be/domain/contracts"
-	"github.com/hology8/hology-be/domain/dto"
-	"github.com/hology8/hology-be/domain/entity"
-	"github.com/hology8/hology-be/internal/infra/env"
-	"github.com/hology8/hology-be/pkg/bcrypt"
-	"github.com/hology8/hology-be/pkg/gomail"
-	html_content "github.com/hology8/hology-be/pkg/html"
-	"github.com/hology8/hology-be/pkg/jwt"
-	"github.com/hology8/hology-be/pkg/log"
+	"github.com/BangNopall/hology8-be/domain"
+	"github.com/BangNopall/hology8-be/domain/contracts"
+	"github.com/BangNopall/hology8-be/domain/dto"
+	"github.com/BangNopall/hology8-be/domain/entity"
+	"github.com/BangNopall/hology8-be/internal/infra/env"
+	"github.com/BangNopall/hology8-be/pkg/bcrypt"
+	"github.com/BangNopall/hology8-be/pkg/gomail"
+	html_content "github.com/BangNopall/hology8-be/pkg/html"
+	"github.com/BangNopall/hology8-be/pkg/jwt"
+	"github.com/BangNopall/hology8-be/pkg/log"
 )
 
 type adminService struct {
