@@ -16,9 +16,7 @@ import (
 	"github.com/BangNopall/hology8-be/pkg/log"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
-	"github.com/aws/aws-sdk-go-v2/service/s3/types"
 	"github.com/google/uuid"
 )
 
@@ -40,22 +38,14 @@ type s3Client struct {
 }
 
 func NewS3Storage() CloudStorage {
-	if env.AppEnv.AwsBaseEndpoint == "" || env.AppEnv.AwsBucket == "" || env.AppEnv.AwsRegion == "" {
-		log.Fatal(log.LogInfo{}, "[S3][NewS3Storage] missing AWS_BUCKET or AWS_REGION in env or AWS_BASE_ENDPOINT")
+	if env.AppEnv.AwsBucket == "" || env.AppEnv.AwsRegion == "" {
+		log.Fatal(log.LogInfo{}, "[S3][NewS3Storage] missing AWS_BUCKET or AWS_REGION in env")
 	}
 
 	ctx := context.Background()
 
 	cfg, err := config.LoadDefaultConfig(ctx,
-		config.WithBaseEndpoint(env.AppEnv.AwsBaseEndpoint),
 		config.WithRegion(env.AppEnv.AwsRegion),
-		config.WithCredentialsProvider(
-			aws.NewCredentialsCache(credentials.NewStaticCredentialsProvider(
-				env.AppEnv.AwsAccessKey,
-				env.AppEnv.AwsSecret,
-				"",
-			)),
-		),
 		config.WithRequestChecksumCalculation(aws.RequestChecksumCalculationWhenRequired),
 		config.WithResponseChecksumValidation(aws.ResponseChecksumValidationWhenRequired),
 	)
@@ -120,7 +110,6 @@ func (s *s3Client) Upload(relativePath string, file *multipart.FileHeader) (stri
 		Key:         aws.String(key),
 		Body:        bytes.NewReader(buf.Bytes()),
 		ContentType: aws.String(contentType),
-		ACL:         types.ObjectCannedACLPublicRead,
 		Metadata: map[string]string{
 			"uuid": uuid.New().String(),
 		},
@@ -134,7 +123,7 @@ func (s *s3Client) Upload(relativePath string, file *multipart.FileHeader) (stri
 		return "", err
 	}
 
-	url := fmt.Sprintf("https://%s.is3.cloudhost.id/%s", s.bucket, key)
+	url := buildPublicObjectURL(s.bucket, s.region, key)
 
 	log.Info(log.LogInfo{
 		"url":      url,
@@ -237,4 +226,13 @@ func extractKeyFromURL(fileURL string) (string, error) {
 		return "", err
 	}
 	return strings.TrimPrefix(u.Path, "/"), nil
+}
+
+func buildPublicObjectURL(bucket, region, key string) string {
+	u := url.URL{
+		Scheme: "https",
+		Host:   fmt.Sprintf("%s.s3.%s.amazonaws.com", bucket, region),
+		Path:   "/" + key,
+	}
+	return u.String()
 }

@@ -40,11 +40,8 @@ type Env struct {
 	JwtExpireTime      string `mapstructure:"JWT_EXP_TIME"`
 	JwtUserRole        string `mapstructure:"JWT_USER_ROLE"`
 	JwtAdminRole       string `mapstructure:"JWT_ADMIN_ROLE"`
-	AwsBaseEndpoint    string `mapstructure:"AWS_BASE_ENDPOINT"`
 	AwsBucket          string `mapstructure:"AWS_BUCKET"`
 	AwsRegion          string `mapstructure:"AWS_REGION"`
-	AwsAccessKey       string `mapstructure:"AWS_ACCESS_KEY_ID"`
-	AwsSecret          string `mapstructure:"AWS_SECRET_ACCESS_KEY"`
 }
 
 var AppEnv = getEnv()
