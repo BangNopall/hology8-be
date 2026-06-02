@@ -18,6 +18,8 @@ type Env struct {
 	DBUser             string `mapstructure:"DB_USER"`
 	DBPass             string `mapstructure:"DB_PASS"`
 	DBName             string `mapstructure:"DB_NAME"`
+	DBSSLMode          string `mapstructure:"DB_SSLMODE"`
+	DBSSLRootCert      string `mapstructure:"DB_SSLROOTCERT"`
 	SupaURL            string `mapstructure:"SUPABASE_URL"`
 	SupaKey            string `mapstructure:"SUPABASE_KEY"`
 	SupaBucket         string `mapstructure:"SUPABASE_BUCKET"`

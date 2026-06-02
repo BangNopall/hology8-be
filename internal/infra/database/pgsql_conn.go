@@ -22,14 +22,24 @@ const SEEDERS_DEV_PATH = SEEDERS_FILE_PATH + "dev/"
 const SEEDERS_PROD_PATH = SEEDERS_FILE_PATH + "prod/"
 
 func NewPgsqlConn() *gorm.DB {
+	sslMode := env.AppEnv.DBSSLMode
+	if sslMode == "" {
+		sslMode = "disable"
+	}
+
 	dsn := fmt.Sprintf(
-		"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Jakarta",
+		"host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=Asia/Jakarta",
 		env.AppEnv.DBHost,
 		env.AppEnv.DBUser,
 		env.AppEnv.DBPass,
 		env.AppEnv.DBName,
 		env.AppEnv.DBPort,
+		sslMode,
 	)
+
+	if env.AppEnv.DBSSLRootCert != "" {
+		dsn = fmt.Sprintf("%s sslrootcert=%s", dsn, env.AppEnv.DBSSLRootCert)
+	}
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{TranslateError: true})
 
