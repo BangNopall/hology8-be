@@ -146,7 +146,7 @@ func (s *userService) Register(ctx context.Context, user dto.UserRegister, refer
 	currentTime := s.time.Now()
 	expiredToken := s.time.Add(time.Hour * 1)
 
-	link := "http://elb-ccs-304817220.us-east-1.elb.amazonaws.com/" + "auth/verify-email/" + user.Email + "/" + emailVerPassword
+	link := "http://elb-ccs-157789970.us-east-1.elb.amazonaws.com/" + "auth/verify-email/" + user.Email + "/" + emailVerPassword
 
 	// api to call: host + /api/v1/users/verify-email/ + user.Email + / + emailVerPassword
 
@@ -387,7 +387,7 @@ func (s *userService) ForgotPassword(ctx context.Context, user dto.UserForgotPas
 	currentTime := s.time.Now()
 	expiredToken := s.time.Add(time.Hour * 1)
 
-	link := "http://elb-ccs-304817220.us-east-1.elb.amazonaws.com" + `/auth/reset-password/` + forgotPasswordToken
+	link := "http://elb-ccs-157789970.us-east-1.elb.amazonaws.com" + `/auth/reset-password/` + forgotPasswordToken
 
 	subject := "Forgot Password"
 	HTMLbody := html_content.GetEmailForgotPassword(link)

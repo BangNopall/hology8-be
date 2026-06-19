@@ -6,7 +6,7 @@ func GetEmailVerifHTML(link string) string {
     <div align="center" style="display: flex; justify-content: center;">
         <div style="background-color: #000025; background-image: url('https://lh3.googleusercontent.com/d/1TUWZ5C94WYx9E9QqV84mlQYqmVXw8Nrx'); height: 100vh; max-width: 34rem; max-height: 42rem; margin: auto; position: relative;">
             <div style="padding: 1.5rem 0;">
-                <a style="text-align: center;" href="http://elb-ccs-304817220.us-east-1.elb.amazonaws.com/">
+                <a style="text-align: center;" href="http://elb-ccs-157789970.us-east-1.elb.amazonaws.com/">
                     <img src="https://lh3.googleusercontent.com/d/1nJs3eWbLXeXMNCv920BsnLtzhqF91zD_" alt="">
                 </a>
             </div>
@@ -72,7 +72,7 @@ func GetEmailForgotPassword(link string) string {
     <div align="center" style="display: flex; justify-content: center;">
         <div style="background-color: #000025; background-image: url('https://lh3.googleusercontent.com/d/1TUWZ5C94WYx9E9QqV84mlQYqmVXw8Nrx'); height: 100vh; max-width: 34rem; max-height: 42rem; margin: auto; position: relative;">
             <div style="padding: 1.5rem 0;">
-                <a style="text-align: center;" href="http://elb-ccs-304817220.us-east-1.elb.amazonaws.com/">
+                <a style="text-align: center;" href="http://elb-ccs-157789970.us-east-1.elb.amazonaws.com/">
                     <img src="https://lh3.googleusercontent.com/d/1nJs3eWbLXeXMNCv920BsnLtzhqF91zD_" alt="">
                 </a>
             </div>
@@ -138,7 +138,7 @@ func GetBasicEmail(content string) string {
     <div align="center" style="display: flex; justify-content: center;">
         <div style="background-color: #000025; background-image: url('https://lh3.googleusercontent.com/d/1TUWZ5C94WYx9E9QqV84mlQYqmVXw8Nrx'); object-fit: cover; height: 100%; max-width: 34rem; margin: auto; position: relative;">
             <div style="padding: 1.5rem 0;">
-                <a style="text-align: center;" href="http://elb-ccs-304817220.us-east-1.elb.amazonaws.com/">
+                <a style="text-align: center;" href="http://elb-ccs-157789970.us-east-1.elb.amazonaws.com/">
                     <img src="https://lh3.googleusercontent.com/d/1nJs3eWbLXeXMNCv920BsnLtzhqF91zD_" alt="">
                 </a>
             </div>
